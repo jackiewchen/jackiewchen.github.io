@@ -8,11 +8,11 @@ function Projects() {
         <div className="section-header">
           <div>
             <p className="eyebrow">Featured Projects</p>
-            <h2>Recent work</h2>
+            <h2>Software engineering projects</h2>
           </div>
           <p>
-            A small selection of projects that show frontend development,
-            problem solving, and clear communication.
+            Coursework and team projects across mobile development, full-stack
+            web apps, and systems programming.
           </p>
         </div>
 

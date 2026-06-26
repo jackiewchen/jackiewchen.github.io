@@ -1,28 +1,55 @@
+import { Link } from 'react-router-dom'
 import heroImage from '../assets/hero.png'
+import { profile } from '../data/profile'
 
 function Hero() {
   return (
     <section className="hero-section" id="home">
       <div className="container hero-layout">
         <div className="hero-copy">
-          <p className="eyebrow">Software Engineering Portfolio</p>
-          <h1>Hi, I&apos;m Jackie. I build clean, useful web experiences.</h1>
+          <p className="eyebrow">{profile.major} Student</p>
+          <h1>{profile.name}</h1>
+          <p className="hero-headline">
+            Computer Science student at UC Santa Barbara
+          </p>
           <p className="hero-intro">
-            I&apos;m focused on React, TypeScript, and practical engineering
-            projects that turn ideas into reliable, easy-to-use products.
+            Interested in frontend, mobile, full-stack web development, and
+            product-focused software engineering.
+          </p>
+          <p className="hero-meta">
+            {profile.school} | {profile.location}
           </p>
 
           <div className="hero-actions" aria-label="Primary links">
-            <a className="button button-primary" href="#projects">
+            <Link className="button button-primary" to="/#projects">
               View Projects
-            </a>
+            </Link>
             <a
               className="button button-secondary"
-              href="https://example.com/resume"
+              href={profile.links.resume}
               target="_blank"
               rel="noreferrer"
             >
-              Resume
+              View Resume
+            </a>
+            <a
+              className="button button-secondary"
+              href={profile.links.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              className="button button-secondary"
+              href={profile.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a className="button button-secondary" href={profile.links.email}>
+              Email
             </a>
           </div>
         </div>
@@ -33,7 +60,7 @@ function Hero() {
             alt="Abstract layered illustration representing software building blocks"
           />
           <figcaption>
-            React, TypeScript, and product-minded frontend development.
+            Software engineering projects across mobile, web, and systems.
           </figcaption>
         </figure>
       </div>

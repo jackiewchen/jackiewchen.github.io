@@ -1,3 +1,5 @@
+import { profile } from '../data/profile'
+
 const currentYear = new Date().getFullYear()
 
 function Contact() {
@@ -6,20 +8,20 @@ function Contact() {
       <div className="container contact-layout">
         <div>
           <p className="eyebrow">Contact</p>
-          <h2>Let&apos;s build something clear and useful.</h2>
+          <h2>Contact</h2>
           <p>
-            I&apos;m open to internships, project collaborations, and
-            conversations about software engineering.
+            Open to software engineering internships, project collaborations,
+            and technical conversations.
           </p>
         </div>
 
         <div className="contact-actions" aria-label="Contact links">
-          <a className="button button-primary" href="mailto:hello@example.com">
+          <a className="button button-primary" href={profile.links.email}>
             Email
           </a>
           <a
             className="button button-secondary"
-            href="https://github.com/your-username"
+            href={profile.links.github}
             target="_blank"
             rel="noreferrer"
           >
@@ -27,17 +29,25 @@ function Contact() {
           </a>
           <a
             className="button button-secondary"
-            href="https://www.linkedin.com/in/your-username"
+            href={profile.links.linkedin}
             target="_blank"
             rel="noreferrer"
           >
             LinkedIn
           </a>
+          <a
+            className="button button-secondary"
+            href={profile.links.resume}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View Resume
+          </a>
         </div>
       </div>
 
       <div className="container footer-row">
-        <p>© {currentYear} Jackie. Built with React, TypeScript, and CSS.</p>
+        <p>Copyright {currentYear} {profile.name}. Built with React, TypeScript, and CSS.</p>
       </div>
     </footer>
   )

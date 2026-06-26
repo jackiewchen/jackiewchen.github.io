@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
 
 type ProjectCardProps = {
@@ -5,6 +6,8 @@ type ProjectCardProps = {
 }
 
 function ProjectCard({ project }: ProjectCardProps) {
+  const detailsPath = `/projects/${project.slug}`
+
   return (
     <article className="project-card">
       {project.imageUrl ? (
@@ -17,23 +20,39 @@ function ProjectCard({ project }: ProjectCardProps) {
       ) : null}
 
       <div className="project-content">
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
+        <h3>
+          <Link to={detailsPath}>{project.title}</Link>
+        </h3>
+        <p>{project.cardDescription}</p>
       </div>
 
-      <ul className="tag-list" aria-label={`${project.title} technologies`}>
-        {project.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
+      <div className="project-detail-group">
+        <h4>Tech Stack</h4>
+        <ul className="tag-list" aria-label={`${project.title} technologies`}>
+          {project.techStack.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="project-detail-group">
+        <h4>Project Focus</h4>
+        <ul className="focus-list">
+          {project.focus.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
 
       <div className="project-links">
-        <a href={project.liveUrl} target="_blank" rel="noreferrer">
-          Live Demo
-        </a>
-        <a href={project.sourceUrl} target="_blank" rel="noreferrer">
-          Source
-        </a>
+        <Link className="project-detail-link" to={detailsPath}>
+          View Details
+        </Link>
+        {project.links?.map((link) => (
+          <a href={link.href} key={link.href} target="_blank" rel="noreferrer">
+            {link.label}
+          </a>
+        ))}
       </div>
     </article>
   )

@@ -8,25 +8,28 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    role: 'Software Engineering Student',
-    organization: 'University Coursework',
-    period: '2024 - Present',
+    role: 'Project Management & UX/UI Intern',
+    organization: 'Waymo',
+    period: 'Jun. 2024 - Aug. 2024',
     summary:
-      'Building a foundation in web development, data structures, operating systems, and collaborative software projects.',
+      'Supported product strategy and UX/UI recommendations for a student intern project focused on autonomous vehicle services in San Diego.',
     highlights: [
-      'Implemented React and TypeScript interfaces for class and personal projects.',
-      'Practiced Git workflows, code reviews, testing, and technical documentation.',
+      'Developed a business proposal and product model for launching autonomous vehicle services in San Diego.',
+      'Researched market needs, user pain points, and deployment considerations to support product strategy and UX/UI recommendations.',
+      'Built an HTML/CSS/JavaScript web portfolio to present research findings and final recommendations.',
+      'Coordinated with a 20+ person intern team to organize project tasks, support collaboration, and present final recommendations.',
     ],
   },
   {
-    role: 'Frontend Developer',
-    organization: 'Personal Projects',
-    period: '2023 - Present',
+    role: 'CSSI Scholar',
+    organization: 'Google Computer Science Summer Institute',
+    period: 'Jul. 2022 - Aug. 2022',
     summary:
-      'Designing and shipping small applications that focus on clear user flows, readable code, and responsive layouts.',
+      'Completed Google\'s 4-week Computer Science Summer Institute focused on software engineering fundamentals and web development.',
     highlights: [
-      'Created reusable components for project dashboards and portfolio pages.',
-      'Used plain CSS to build accessible layouts across desktop and mobile screens.',
+      'Completed coursework in JavaScript, HTML/CSS, APIs, product design, and software engineering fundamentals.',
+      'Built and presented a collaborative JavaScript web app using the Canvas API, Bulma, and GIPHY API.',
+      'Completed individual coding projects focused on web development concepts and interactive user interfaces.',
     ],
   },
 ]

@@ -1,13 +1,4 @@
-const skills = [
-  'React',
-  'TypeScript',
-  'JavaScript',
-  'HTML',
-  'CSS',
-  'Git',
-  'Testing',
-  'Documentation',
-]
+import { skillGroups } from '../data/profile'
 
 function About() {
   return (
@@ -15,26 +6,29 @@ function About() {
       <div className="container about-layout">
         <div>
           <p className="eyebrow">About</p>
-          <h2>Curious, practical, and focused on shipping useful work.</h2>
+          <h2>Computer Science student focused on user-facing software.</h2>
         </div>
 
         <div className="about-content">
           <p>
-            I enjoy building interfaces that feel straightforward, dependable,
-            and easy to understand. My current focus is strengthening my React
-            and TypeScript skills while learning how strong engineering habits
-            make software easier to maintain.
-          </p>
-          <p>
-            Outside of implementation, I care about naming, documentation,
-            accessibility, and making project decisions clear for teammates.
+            I&apos;m a Computer Science student at UC Santa Barbara interested
+            in building user-focused software across mobile, frontend, and
+            full-stack web applications. My projects combine product thinking,
+            frontend development, backend APIs, and systems-level coursework.
           </p>
 
-          <ul className="skill-list" aria-label="Technical skills">
-            {skills.map((skill) => (
-              <li key={skill}>{skill}</li>
+          <div className="skills-grid" aria-label="Technical skills">
+            {skillGroups.map((group) => (
+              <section className="skill-group" key={group.label}>
+                <h3>{group.label}</h3>
+                <ul className="skill-list">
+                  {group.skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </section>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </section>

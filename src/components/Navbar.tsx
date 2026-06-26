@@ -1,34 +1,37 @@
+import { Link } from 'react-router-dom'
+import { profile } from '../data/profile'
+
 const navItems = [
-  { label: 'Projects', href: '#projects' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Projects', to: '/#projects' },
+  { label: 'Experience', to: '/#experience' },
+  { label: 'About', to: '/#about' },
+  { label: 'Contact', to: '/#contact' },
 ]
 
 function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar-inner">
-        <a className="brand" href="#home" aria-label="Portfolio home">
+        <Link className="brand" to="/" aria-label="Jackie Chen portfolio home">
           <span className="brand-mark">J</span>
-          <span>Jackie Portfolio</span>
-        </a>
+          <span>{profile.name}</span>
+        </Link>
 
         <nav className="nav-links" aria-label="Main navigation">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
+            <Link key={item.to} to={item.to}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <a
           className="button button-small button-secondary"
-          href="https://example.com/resume"
+          href={profile.links.resume}
           target="_blank"
           rel="noreferrer"
         >
-          Resume
+          View Resume
         </a>
       </div>
     </header>
