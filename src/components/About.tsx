@@ -2,10 +2,10 @@ import { skillGroups } from '../data/profile'
 
 function About() {
   return (
-    <section className="section about-section" id="about">
+    <section className="section skills-section" id="skills">
       <div className="container about-layout">
         <div>
-          <p className="eyebrow">About</p>
+          <p className="eyebrow">Skills</p>
           <h2>Computer Science student focused on user-facing software.</h2>
         </div>
 
@@ -14,7 +14,8 @@ function About() {
             I&apos;m a Computer Science student at UC Santa Barbara interested
             in building user-focused software across mobile, frontend, and
             full-stack web applications. My projects combine product thinking,
-            frontend development, backend APIs, and systems-level coursework.
+            frontend development, backend APIs, and technical coursework in
+            systems and computer graphics.
           </p>
 
           <div className="skills-grid" aria-label="Technical skills">

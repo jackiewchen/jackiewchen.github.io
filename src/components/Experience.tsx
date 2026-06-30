@@ -7,7 +7,7 @@ function Experience() {
         <div className="section-header">
           <div>
             <p className="eyebrow">Experience</p>
-            <h2>Internship and programs</h2>
+            <h2>Internships and Programs</h2>
           </div>
           <p>
             Relevant product, UX/UI, and software engineering learning

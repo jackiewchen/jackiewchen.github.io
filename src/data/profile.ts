@@ -1,3 +1,6 @@
+// Update this email address here if it changes.
+export const EMAIL = 'jackiechen246@gmail.com'
+
 export const profile = {
   name: 'Jackie Chen',
   school: 'University of California, Santa Barbara',
@@ -6,7 +9,7 @@ export const profile = {
   links: {
     github: 'https://github.com/jackiewchen',
     linkedin: 'https://www.linkedin.com/in/jackiewchen',
-    email: 'mailto:jackiechen246@gmail.com',
+    email: `mailto:${EMAIL}`,
     resume: '/Jackie_Chen_Resume.pdf',
   },
 }

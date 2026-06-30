@@ -1,8 +1,36 @@
-import { Link } from 'react-router-dom'
-import heroImage from '../assets/hero.png'
+import { Link, useLocation } from 'react-router-dom'
 import { profile } from '../data/profile'
+import { scrollToSection } from '../utils/scrollToSection'
 
-function Hero() {
+type HeroProps = {
+  onOpenEmail: () => void
+}
+
+const workAreas = [
+  'Mobile app development',
+  'Full-stack web development',
+  'Computer graphics',
+  'Systems programming',
+]
+
+const heroTechTags = [
+  'React Native',
+  'TypeScript',
+  'Spring Boot',
+  'C++',
+  'Firebase',
+  'Docker',
+]
+
+function Hero({ onOpenEmail }: HeroProps) {
+  const location = useLocation()
+
+  const handleProjectsClick = () => {
+    if (location.pathname === '/featured') {
+      window.requestAnimationFrame(() => scrollToSection('featured'))
+    }
+  }
+
   return (
     <section className="hero-section" id="home">
       <div className="container hero-layout">
@@ -21,7 +49,11 @@ function Hero() {
           </p>
 
           <div className="hero-actions" aria-label="Primary links">
-            <Link className="button button-primary" to="/#projects">
+            <Link
+              className="button button-primary"
+              to="/featured"
+              onClick={handleProjectsClick}
+            >
               View Projects
             </Link>
             <a
@@ -33,7 +65,7 @@ function Hero() {
               View Resume
             </a>
             <a
-              className="button button-secondary"
+              className="button button-small button-secondary"
               href={profile.links.github}
               target="_blank"
               rel="noreferrer"
@@ -41,28 +73,49 @@ function Hero() {
               GitHub
             </a>
             <a
-              className="button button-secondary"
+              className="button button-small button-secondary"
               href={profile.links.linkedin}
               target="_blank"
               rel="noreferrer"
             >
               LinkedIn
             </a>
-            <a className="button button-secondary" href={profile.links.email}>
+            <button
+              className="button button-small button-secondary"
+              type="button"
+              onClick={onOpenEmail}
+            >
               Email
-            </a>
+            </button>
           </div>
         </div>
 
-        <figure className="hero-visual">
-          <img
-            src={heroImage}
-            alt="Abstract layered illustration representing software building blocks"
-          />
-          <figcaption>
-            Software engineering projects across mobile, web, and systems.
-          </figcaption>
-        </figure>
+        <aside className="hero-work-card" aria-label="Featured work preview">
+          <div className="work-card-header">
+            <p className="eyebrow">Featured Work</p>
+            <h2>Project areas I am building in</h2>
+          </div>
+
+          <ul className="work-area-list">
+            {workAreas.map((area, index) => (
+              <li key={area}>
+                <span aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <strong>{area}</strong>
+              </li>
+            ))}
+          </ul>
+
+          <div className="work-tech-panel">
+            <p>Core tools</p>
+            <div className="work-tech-tags" aria-label="Featured technologies">
+              {heroTechTags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   )

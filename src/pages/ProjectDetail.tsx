@@ -3,7 +3,11 @@ import { Link, useParams } from 'react-router-dom'
 import Contact from '../components/Contact'
 import { projects } from '../data/projects'
 
-function ProjectDetail() {
+type ProjectDetailProps = {
+  onOpenEmail: () => void
+}
+
+function ProjectDetail({ onOpenEmail }: ProjectDetailProps) {
   const { slug } = useParams()
   const project = projects.find((item) => item.slug === slug)
 
@@ -21,23 +25,28 @@ function ProjectDetail() {
             <p className="detail-lede">
               The project you are looking for is not available.
             </p>
-            <Link className="button button-primary" to="/#projects">
+            <Link className="button button-primary" to="/featured">
               Back to Projects
             </Link>
           </section>
         </main>
-        <Contact />
+        <Contact onOpenEmail={onOpenEmail} />
       </>
     )
   }
+
+  const backPath = project.featured ? '/featured' : '/projects'
+  const backLabel = project.featured
+    ? 'Back to Featured Projects'
+    : 'Back to All Projects'
 
   return (
     <>
       <main className="project-detail-page">
         <section className="container detail-shell">
           <div className="detail-header">
-            <Link className="back-link" to="/#projects">
-              Back to Projects
+            <Link className="back-link" to={backPath}>
+              {backLabel}
             </Link>
             <p className="eyebrow">Project Detail</p>
             <h1>{project.title}</h1>
@@ -108,7 +117,7 @@ function ProjectDetail() {
           </div>
         </section>
       </main>
-      <Contact />
+      <Contact onOpenEmail={onOpenEmail} />
     </>
   )
 }

@@ -1,8 +1,12 @@
 import { profile } from '../data/profile'
 
-const currentYear = new Date().getFullYear()
+const copyrightYear = 2026
 
-function Contact() {
+type ContactProps = {
+  onOpenEmail: () => void
+}
+
+function Contact({ onOpenEmail }: ContactProps) {
   return (
     <footer className="contact-section" id="contact">
       <div className="container contact-layout">
@@ -10,15 +14,20 @@ function Contact() {
           <p className="eyebrow">Contact</p>
           <h2>Contact</h2>
           <p>
-            Open to software engineering internships, project collaborations,
-            and technical conversations.
+            Open to new-grad software engineering opportunities, technical
+            projects, and collaboration in frontend, mobile, full-stack web
+            development, and product-focused software.
           </p>
         </div>
 
         <div className="contact-actions" aria-label="Contact links">
-          <a className="button button-primary" href={profile.links.email}>
+          <button
+            className="button button-primary"
+            type="button"
+            onClick={onOpenEmail}
+          >
             Email
-          </a>
+          </button>
           <a
             className="button button-secondary"
             href={profile.links.github}
@@ -47,7 +56,10 @@ function Contact() {
       </div>
 
       <div className="container footer-row">
-        <p>Copyright {currentYear} {profile.name}. Built with React, TypeScript, and CSS.</p>
+        <p>
+          Copyright {copyrightYear} {profile.name}. Built with React,
+          TypeScript, and CSS.
+        </p>
       </div>
     </footer>
   )
