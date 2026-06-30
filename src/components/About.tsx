@@ -1,4 +1,5 @@
-import { skillGroups } from '../data/profile'
+import { profile, skillGroups } from '../data/profile'
+import HeadshotAvatar from './HeadshotAvatar'
 
 function About() {
   return (
@@ -17,6 +18,15 @@ function About() {
             frontend development, backend APIs, and technical coursework in
             systems and computer graphics.
           </p>
+
+          <aside className="profile-card" aria-label="Profile summary">
+            <HeadshotAvatar className="profile-card-avatar" />
+            <div className="profile-card-copy">
+              <strong>{profile.name}</strong>
+              <span>Computer Science student at UC Santa Barbara</span>
+              <span>{profile.location}</span>
+            </div>
+          </aside>
 
           <div className="skills-grid" aria-label="Technical skills">
             {skillGroups.map((group) => (

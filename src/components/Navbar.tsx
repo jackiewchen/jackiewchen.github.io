@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { profile } from '../data/profile'
 import type { HomeSectionId } from '../utils/homeSections'
 import { scrollToSection } from '../utils/scrollToSection'
+import HeadshotAvatar from './HeadshotAvatar'
 
 const navItems = [
   { label: 'Projects', to: '/featured', sectionId: 'featured' },
@@ -36,8 +37,8 @@ function Navbar() {
     <header className="navbar">
       <div className="container navbar-inner">
         <Link className="brand" to="/" aria-label="Jackie Chen portfolio home">
-          <span className="brand-mark">J</span>
-          <span>{profile.name}</span>
+          <HeadshotAvatar className="brand-avatar" />
+          <span className="brand-name">{profile.name}</span>
         </Link>
 
         <nav className="nav-links" aria-label="Main navigation">
