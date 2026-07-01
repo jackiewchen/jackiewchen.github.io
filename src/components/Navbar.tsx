@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { profile } from '../data/profile'
 import type { HomeSectionId } from '../utils/homeSections'
 import { scrollToSection } from '../utils/scrollToSection'
+import ExternalLinkIcon from './ExternalLinkIcon'
 import HeadshotAvatar from './HeadshotAvatar'
 
 const navItems = [
@@ -58,8 +59,10 @@ function Navbar() {
           href={profile.links.resume}
           target="_blank"
           rel="noreferrer"
+          aria-label="Resume, opens in a new tab"
         >
-          View Resume
+          <span>Resume</span>
+          <ExternalLinkIcon />
         </a>
       </div>
     </header>

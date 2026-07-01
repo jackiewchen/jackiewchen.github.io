@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { profile } from '../data/profile'
 import { scrollToSection } from '../utils/scrollToSection'
+import ExternalLinkIcon from './ExternalLinkIcon'
 
 type HeroProps = {
   onOpenEmail: () => void
@@ -35,10 +36,10 @@ function Hero({ onOpenEmail }: HeroProps) {
     <section className="hero-section" id="home">
       <div className="container hero-layout">
         <div className="hero-copy">
-          <p className="eyebrow">{profile.major} Student</p>
+          <p className="eyebrow">{profile.major} Graduate</p>
           <h1>{profile.name}</h1>
           <p className="hero-headline">
-            Computer Science student at UC Santa Barbara
+            Computer Science graduate from UC Santa Barbara
           </p>
           <p className="hero-intro">
             Interested in frontend, mobile, full-stack web development, and
@@ -54,31 +55,37 @@ function Hero({ onOpenEmail }: HeroProps) {
               to="/featured"
               onClick={handleProjectsClick}
             >
-              View Projects
+              Projects
             </Link>
             <a
               className="button button-secondary"
               href={profile.links.resume}
               target="_blank"
               rel="noreferrer"
+              aria-label="Resume, opens in a new tab"
             >
-              View Resume
+              <span>Resume</span>
+              <ExternalLinkIcon />
             </a>
             <a
               className="button button-small button-secondary"
               href={profile.links.github}
               target="_blank"
               rel="noreferrer"
+              aria-label="GitHub, opens in a new tab"
             >
-              GitHub
+              <span>GitHub</span>
+              <ExternalLinkIcon />
             </a>
             <a
               className="button button-small button-secondary"
               href={profile.links.linkedin}
               target="_blank"
               rel="noreferrer"
+              aria-label="LinkedIn, opens in a new tab"
             >
-              LinkedIn
+              <span>LinkedIn</span>
+              <ExternalLinkIcon />
             </a>
             <button
               className="button button-small button-secondary"

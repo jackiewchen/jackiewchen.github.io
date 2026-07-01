@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/projects'
+import ExternalLinkIcon from './ExternalLinkIcon'
 
 type ProjectCardProps = {
   project: Project
+  source?: 'featured' | 'all'
 }
 
 type ProjectPreviewProps = {
@@ -49,8 +51,8 @@ function ProjectPreview({ detailsPath, project }: ProjectPreviewProps) {
   )
 }
 
-function ProjectCard({ project }: ProjectCardProps) {
-  const detailsPath = `/projects/${project.slug}`
+function ProjectCard({ project, source = 'all' }: ProjectCardProps) {
+  const detailsPath = `/projects/${project.slug}?from=${source}`
 
   return (
     <article className="project-card">
@@ -86,8 +88,10 @@ function ProjectCard({ project }: ProjectCardProps) {
             key={link.href}
             target="_blank"
             rel="noreferrer"
+            aria-label={`${link.label}, opens in a new tab`}
           >
-            {link.label}
+            <span>{link.label}</span>
+            <ExternalLinkIcon />
           </a>
         ))}
       </div>
