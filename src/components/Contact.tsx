@@ -1,4 +1,5 @@
 import { profile } from '../data/profile'
+import ExternalLinkIcon from './ExternalLinkIcon'
 
 const copyrightYear = 2026
 
@@ -33,24 +34,30 @@ function Contact({ onOpenEmail }: ContactProps) {
             href={profile.links.github}
             target="_blank"
             rel="noreferrer"
+            aria-label="GitHub, opens in a new tab"
           >
-            GitHub
+            <span>GitHub</span>
+            <ExternalLinkIcon />
           </a>
           <a
             className="button button-secondary"
             href={profile.links.linkedin}
             target="_blank"
             rel="noreferrer"
+            aria-label="LinkedIn, opens in a new tab"
           >
-            LinkedIn
+            <span>LinkedIn</span>
+            <ExternalLinkIcon />
           </a>
           <a
             className="button button-secondary"
             href={profile.links.resume}
             target="_blank"
             rel="noreferrer"
+            aria-label="Resume, opens in a new tab"
           >
-            View Resume
+            <span>Resume</span>
+            <ExternalLinkIcon />
           </a>
         </div>
       </div>

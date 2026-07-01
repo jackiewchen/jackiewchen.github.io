@@ -32,3 +32,16 @@ export const skillGroups = [
     skills: ['Git/GitHub', 'Docker', 'GitHub Actions', 'Jest', 'JUnit', 'React Testing Library'],
   },
 ]
+
+export const relevantCoursework = [
+  'Data Structures & Algorithms',
+  'Software Engineering',
+  'Mobile App Development',
+  'Databases',
+  'Operating Systems',
+  'Computer Networks',
+  'Computer Architecture',
+  'Computer Graphics',
+  'Artificial Intelligence / Machine Learning',
+  'Human-Computer Interaction',
+]

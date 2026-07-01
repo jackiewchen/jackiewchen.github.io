@@ -12,7 +12,7 @@ export const experience: ExperienceItem[] = [
     organization: 'Waymo',
     period: 'Jun. 2024 - Aug. 2024',
     summary:
-      'Supported product strategy and UX/UI recommendations for a student intern project focused on autonomous vehicle services in San Diego.',
+      'Supported product strategy and UX/UI recommendations for an intern project focused on autonomous vehicle services in San Diego.',
     highlights: [
       'Developed a business proposal and product model for launching autonomous vehicle services in San Diego.',
       'Researched market needs, user pain points, and deployment considerations to support product strategy and UX/UI recommendations.',

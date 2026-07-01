@@ -19,7 +19,11 @@ function Projects() {
 
         <div className="projects-grid">
           {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              source="featured"
+            />
           ))}
         </div>
 

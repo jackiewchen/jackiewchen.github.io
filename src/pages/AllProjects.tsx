@@ -22,14 +22,14 @@ function AllProjects({ onOpenEmail }: AllProjectsProps) {
               <h1>Technical projects</h1>
             </div>
             <p>
-              A broader set of software engineering coursework and team
-              projects, with concise summaries and detail pages.
+              A broader set of mobile, web, graphics, systems, networking, and
+              AI coursework projects.
             </p>
           </div>
 
           <div className="projects-grid">
             {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+              <ProjectCard key={project.slug} project={project} source="all" />
             ))}
           </div>
         </section>

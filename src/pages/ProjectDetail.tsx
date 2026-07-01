@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import Contact from '../components/Contact'
+import ExternalLinkIcon from '../components/ExternalLinkIcon'
 import { projects } from '../data/projects'
 
 type ProjectDetailProps = {
@@ -9,7 +10,12 @@ type ProjectDetailProps = {
 
 function ProjectDetail({ onOpenEmail }: ProjectDetailProps) {
   const { slug } = useParams()
+  const [searchParams] = useSearchParams()
   const project = projects.find((item) => item.slug === slug)
+  const from = searchParams.get('from')
+  const backPath = from === 'featured' ? '/featured' : '/projects'
+  const backLabel =
+    from === 'featured' ? 'Back to Featured Projects' : 'Back to All Projects'
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -25,8 +31,8 @@ function ProjectDetail({ onOpenEmail }: ProjectDetailProps) {
             <p className="detail-lede">
               The project you are looking for is not available.
             </p>
-            <Link className="button button-primary" to="/featured">
-              Back to Projects
+            <Link className="button button-primary" to="/projects">
+              Back to All Projects
             </Link>
           </section>
         </main>
@@ -34,11 +40,6 @@ function ProjectDetail({ onOpenEmail }: ProjectDetailProps) {
       </>
     )
   }
-
-  const backPath = project.featured ? '/featured' : '/projects'
-  const backLabel = project.featured
-    ? 'Back to Featured Projects'
-    : 'Back to All Projects'
 
   return (
     <>
@@ -92,8 +93,8 @@ function ProjectDetail({ onOpenEmail }: ProjectDetailProps) {
             </article>
 
             <article className="detail-card">
-              <h2>What I Learned</h2>
-              <p>{project.whatLearned}</p>
+              <h2>Technical Takeaways</h2>
+              <p>{project.technicalTakeaways}</p>
             </article>
 
             {project.links?.length ? (
@@ -107,8 +108,10 @@ function ProjectDetail({ onOpenEmail }: ProjectDetailProps) {
                       key={link.href}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`${link.label}, opens in a new tab`}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
+                      <ExternalLinkIcon />
                     </a>
                   ))}
                 </div>
