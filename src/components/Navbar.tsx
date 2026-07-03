@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { profile } from '../data/profile'
+import { isRenderableLink, profile } from '../data/site'
 import type { HomeSectionId } from '../utils/homeSections'
 import { scrollToSection } from '../utils/scrollToSection'
 import ExternalLinkIcon from './ExternalLinkIcon'
@@ -27,6 +27,7 @@ function scrollToHomeSection(sectionId: HomeSectionId) {
 
 function Navbar() {
   const location = useLocation()
+  const hasResumeLink = isRenderableLink(profile.links.resume)
 
   const handleSectionClick = (sectionId: HomeSectionId, path: string) => {
     if (location.pathname === path) {
@@ -54,16 +55,18 @@ function Navbar() {
           ))}
         </nav>
 
-        <a
-          className="button button-small button-secondary"
-          href={profile.links.resume}
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Resume, opens in a new tab"
-        >
-          <span>Resume</span>
-          <ExternalLinkIcon />
-        </a>
+        {hasResumeLink ? (
+          <a
+            className="button button-small button-secondary"
+            href={profile.links.resume}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Resume, opens in a new tab"
+          >
+            <span>Resume</span>
+            <ExternalLinkIcon />
+          </a>
+        ) : null}
       </div>
     </header>
   )

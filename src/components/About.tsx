@@ -1,4 +1,5 @@
-import { profile, relevantCoursework, skillGroups } from '../data/profile'
+import { profile } from '../data/site'
+import { relevantCoursework, skillGroups } from '../data/skills'
 import HeadshotAvatar from './HeadshotAvatar'
 
 function About() {

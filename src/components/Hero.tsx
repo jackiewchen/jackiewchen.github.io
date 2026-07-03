@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { profile } from '../data/profile'
+import { isRenderableLink, profile } from '../data/site'
 import { scrollToSection } from '../utils/scrollToSection'
 import ExternalLinkIcon from './ExternalLinkIcon'
 
@@ -25,6 +25,9 @@ const heroTechTags = [
 
 function Hero({ onOpenEmail }: HeroProps) {
   const location = useLocation()
+  const hasResumeLink = isRenderableLink(profile.links.resume)
+  const hasGitHubLink = isRenderableLink(profile.links.github)
+  const hasLinkedInLink = isRenderableLink(profile.links.linkedin)
 
   const handleProjectsClick = () => {
     if (location.pathname === '/featured') {
@@ -57,36 +60,42 @@ function Hero({ onOpenEmail }: HeroProps) {
             >
               Projects
             </Link>
-            <a
-              className="button button-secondary"
-              href={profile.links.resume}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Resume, opens in a new tab"
-            >
-              <span>Resume</span>
-              <ExternalLinkIcon />
-            </a>
-            <a
-              className="button button-small button-secondary"
-              href={profile.links.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub, opens in a new tab"
-            >
-              <span>GitHub</span>
-              <ExternalLinkIcon />
-            </a>
-            <a
-              className="button button-small button-secondary"
-              href={profile.links.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn, opens in a new tab"
-            >
-              <span>LinkedIn</span>
-              <ExternalLinkIcon />
-            </a>
+            {hasResumeLink ? (
+              <a
+                className="button button-secondary"
+                href={profile.links.resume}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Resume, opens in a new tab"
+              >
+                <span>Resume</span>
+                <ExternalLinkIcon />
+              </a>
+            ) : null}
+            {hasGitHubLink ? (
+              <a
+                className="button button-small button-secondary"
+                href={profile.links.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub, opens in a new tab"
+              >
+                <span>GitHub</span>
+                <ExternalLinkIcon />
+              </a>
+            ) : null}
+            {hasLinkedInLink ? (
+              <a
+                className="button button-small button-secondary"
+                href={profile.links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn, opens in a new tab"
+              >
+                <span>LinkedIn</span>
+                <ExternalLinkIcon />
+              </a>
+            ) : null}
             <button
               className="button button-small button-secondary"
               type="button"
