@@ -1,96 +1,128 @@
-export type ProjectLink = {
-  label: string
-  href: string
+export type ProjectVisualVariant =
+  | 'mobile'
+  | 'search'
+  | 'graphics'
+  | 'systems'
+  | 'network'
+  | 'ai'
+
+export type ProjectGalleryImage = {
+  src: string
+  alt: string
+  caption?: string
 }
 
-export type ProjectPreview = {
-  variant: 'mobile' | 'search' | 'graphics' | 'systems' | 'network' | 'ai'
+export type ProjectProofItem = {
   label: string
-  heading: string
-  items: string[]
+  detail: string
 }
 
 export type Project = {
-  slug: string
   title: string
+  slug: string
   category: string
   featured: boolean
-  cardDescription: string
-  cardTags: string[]
-  preview: ProjectPreview
-  overview: string
+  previewTitle: string
+  description: string
   techStack: string[]
-  focus: string[]
+  highlights: string[]
+  projectFocus: string[]
+  overview: string
   role: string
-  keyContributions: string[]
+  contributions: string[]
   technicalTakeaways: string
-  imageUrl?: string
-  imageAlt?: string
-  links?: ProjectLink[]
+  projectProof?: ProjectProofItem[]
+  thumbnail?: string
+  thumbnailAlt?: string
+  galleryImages?: ProjectGalleryImage[]
+  repoUrl?: string
+  demoUrl?: string
+  caseStudyUrl?: string
+  sourceAvailabilityNote?: string
+  visualVariant: ProjectVisualVariant
 }
 
+// Project editing notes:
+// - Add repoUrl only after the repo is public, cleaned, and safe.
+// - Add demoUrl only if there is a real working demo.
+// - Add caseStudyUrl only if there is a real writeup page or document.
+// - Add thumbnails/gallery images under public/images/projects/ and reference
+//   them here as /images/projects/your-file-name.png.
+// - Use projectProof for architecture notes, testing/build notes, artifacts,
+//   and concise evidence that does not require publishing source code.
+// - Keep sourceAvailabilityNote for private/course/team projects.
+// - Leave repoUrl/demoUrl/caseStudyUrl undefined to hide those buttons.
 export const projects: Project[] = [
   {
-    slug: 'split-it',
     title: 'Split-It Mobile Expense App',
+    slug: 'split-it',
     category: 'Mobile App',
     featured: true,
-    cardDescription:
-      'A React Native expense-sharing app for managing groups, shared expenses, payments, and balances. I contributed to navigation, group management, profile flows, camera-scanning workflows, and Firebase-backed app functionality.',
-    cardTags: ['React Native', 'TypeScript', 'Firebase', 'Mobile App'],
-    preview: {
-      variant: 'mobile',
-      label: 'Mobile App',
-      heading: 'Expense-sharing mobile app',
-      items: ['Groups', 'Balances', 'Payments'],
-    },
-    overview:
-      'A React Native mobile app for splitting shared expenses across groups, payments, and balances. The app was built with TypeScript, Expo, Firebase Authentication, Firestore, and testing support through Jest and React Native Testing Library.',
+    previewTitle: 'Mobile expense app',
+    description:
+      'React Native expense-sharing app for groups, shared bills, payments, balances, profiles, and Firebase-backed mobile workflows.',
     techStack: [
       'React Native',
       'TypeScript',
       'Expo',
-      'Firebase',
+      'Firebase Auth',
+      'Firestore',
       'Jest',
       'React Native Testing Library',
     ],
-    focus: [
-      'Mobile development',
-      'Frontend flows',
-      'Product-focused UI',
+    highlights: ['React Native', 'TypeScript', 'Firebase', 'Mobile'],
+    projectFocus: [
+      'Mobile app development',
       'Authentication',
       'Firestore data flows',
+      'Group expense workflows',
+      'Team development',
     ],
+    overview:
+      'Split-It is a mobile app for managing shared expenses across groups. Users can create or join groups, add bills and payments, track balances, manage profiles, and use camera-based scanning workflows for expense entry.',
     role:
-      'Contributed to user-facing mobile workflows including navigation, group management, profile flows, camera-scanning features, responsive UI components, and Firebase-backed app functionality.',
-    keyContributions: [
-      'Built and refined React Native screens for group management, profiles, and navigation flows.',
-      'Implemented editable group settings and responsive mobile UI components.',
-      'Contributed to camera-scanning workflows for expense-related app features.',
-      'Integrated Firebase Authentication and Firestore-backed data flows.',
-      'Tested mobile app functionality with Jest and React Native Testing Library.',
+      'Contributed to user-facing mobile workflows across navigation, group management, profile flows, camera-scanning features, responsive UI components, and Firebase-backed app behavior.',
+    contributions: [
+      'Built and refined React Native screens for group management, profile management, and navigation flows.',
+      'Implemented editable group settings and mobile UI components for repeated group workflows.',
+      'Contributed to camera-scanning flows used by expense-related features.',
+      'Integrated Firebase Authentication and Firestore-backed data access patterns.',
+      'Added and maintained Jest and React Native Testing Library coverage for key UI and data workflows.',
     ],
     technicalTakeaways:
-      'Strengthened experience building mobile app flows, working in a team codebase, connecting frontend screens to Firebase-backed data, and translating product requirements into user-facing features.',
+      'This project strengthened my experience building production-shaped mobile flows in a team codebase, connecting React Native screens to Firebase-backed state, and turning product requirements into testable app behavior.',
+    projectProof: [
+      {
+        label: 'Mobile workflow surface',
+        detail:
+          'The app covers group creation/joining, bill entry, payments, profile management, balances, and camera-assisted expense workflows.',
+      },
+      {
+        label: 'Backend integration',
+        detail:
+          'Authentication and shared expense data flows are backed by Firebase Authentication and Firestore.',
+      },
+      {
+        label: 'Testing',
+        detail:
+          'UI and data-path behavior were tested with Jest and React Native Testing Library.',
+      },
+    ],
+    sourceAvailabilityNote:
+      'Public repository pending cleanup and team/course permission review. Screenshots and project details are provided here.',
+    visualVariant: 'mobile',
   },
   {
-    slug: 'ucsb-courses-search',
     title: 'UCSB Courses Search',
+    slug: 'ucsb-courses-search',
     category: 'Full-Stack Web',
     featured: true,
-    cardDescription:
-      'A full-stack course search app with a React frontend, Spring Boot REST APIs, PostgreSQL data storage, Dockerized development, and automated testing.',
-    cardTags: ['React', 'Spring Boot', 'PostgreSQL', 'Docker'],
-    preview: {
-      variant: 'search',
-      label: 'Full-Stack Web',
-      heading: 'Course search web app',
-      items: ['Search', 'Schedules', 'APIs'],
-    },
-    overview:
-      'A full-stack web application for searching and exploring UCSB course information through a React frontend, Java Spring Boot REST APIs, PostgreSQL-backed data, Dockerized development, and automated testing workflows.',
+    previewTitle: 'Course search web app',
+    description:
+      'Full-stack course search app with React, Spring Boot REST APIs, PostgreSQL-backed data, Dockerized workflows, and automated testing.',
     techStack: [
       'React',
+      'TypeScript',
       'Java Spring Boot',
       'REST APIs',
       'PostgreSQL',
@@ -99,40 +131,56 @@ export const projects: Project[] = [
       'React Testing Library',
       'JUnit',
     ],
-    focus: [
+    highlights: ['React', 'Spring Boot', 'PostgreSQL', 'Docker'],
+    projectFocus: [
       'Full-stack web development',
-      'API integration',
-      'Database-backed search',
-      'Testing',
+      'Course search workflows',
+      'REST API integration',
+      'Database-backed features',
+      'Automated testing',
     ],
+    overview:
+      'UCSB Courses Search is a full-stack web application for searching and exploring course information through a React frontend, Java Spring Boot APIs, PostgreSQL-backed storage, Dockerized local development, and automated testing workflows.',
     role:
-      'Built frontend components, connected course search and schedule-management features to API workflows, worked with database-backed functionality, and used Docker and testing workflows during development.',
-    keyContributions: [
-      'Built React components for course search and schedule-management features.',
-      'Integrated frontend API workflows with React Query and Axios.',
-      'Worked with Java Spring Boot REST APIs and PostgreSQL-backed data.',
-      'Used Docker-based development workflows to run and test the application.',
-      'Worked with automated testing tools such as Jest, React Testing Library, JUnit, and JaCoCo where applicable.',
+      'Built frontend components, connected course search and schedule-management features to API workflows, worked with database-backed functionality, and used Docker and testing tools during development.',
+    contributions: [
+      'Built React components for course search and schedule-management interactions.',
+      'Integrated frontend workflows with REST APIs using client-side data fetching patterns.',
+      'Worked with Spring Boot endpoints and PostgreSQL-backed course data.',
+      'Used Docker-based development workflows to run the app consistently across environments.',
+      'Worked with frontend and backend testing tools including Jest, React Testing Library, JUnit, and related coverage workflows.',
     ],
     technicalTakeaways:
-      'Built stronger full-stack web development experience across frontend views, backend APIs, databases, Docker-based development, and automated testing workflows.',
+      'This project helped connect frontend product behavior with backend API contracts, database-backed state, reproducible development environments, and testable full-stack workflows.',
+    projectProof: [
+      {
+        label: 'Application architecture',
+        detail:
+          'React frontend, Spring Boot REST APIs, PostgreSQL-backed data, Dockerized development, and automated testing workflows.',
+      },
+      {
+        label: 'User-facing workflows',
+        detail:
+          'Course search and schedule-management UI flows connect to backend API and database behavior.',
+      },
+      {
+        label: 'Testing/build posture',
+        detail:
+          'Frontend and backend workflows use Jest, React Testing Library, JUnit, and Docker-based local setup patterns.',
+      },
+    ],
+    sourceAvailabilityNote:
+      'Repository link pending cleanup and course/team permission review. Screenshots and architecture details can be shown here.',
+    visualVariant: 'search',
   },
   {
-    slug: 'computer-graphics',
     title: 'Computer Graphics Projects',
+    slug: 'computer-graphics',
     category: 'Computer Graphics',
     featured: true,
-    cardDescription:
-      'A collection of C++ graphics projects involving ray tracing, BVH acceleration, rasterization with z-buffering, and mass-spring simulation.',
-    cardTags: ['C++', 'Ray Tracing', 'Rasterization', 'Simulation'],
-    preview: {
-      variant: 'graphics',
-      label: 'Computer Graphics',
-      heading: 'C++ rendering projects',
-      items: ['BVH', 'Ray tracing', 'Simulation'],
-    },
-    overview:
-      'A collection of C++ graphics projects involving rendering, ray tracing, BVH acceleration structures, rasterization, z-buffering, and mass-spring simulation.',
+    previewTitle: 'C++ rendering projects',
+    description:
+      'C++ graphics project suite covering rasterization, z-buffering, ray tracing, BVH acceleration, and mass-spring simulation.',
     techStack: [
       'C++',
       'Rendering',
@@ -141,127 +189,194 @@ export const projects: Project[] = [
       'Rasterization',
       'Simulation',
     ],
-    focus: [
+    highlights: ['C++', 'Ray Tracing', 'Rasterization', 'Simulation'],
+    projectFocus: [
       'Computer graphics',
-      'C++ programming',
       'Rendering algorithms',
+      'Geometric data structures',
       'Simulation',
+      'Performance-aware C++',
     ],
+    overview:
+      'Computer Graphics Projects is a collection of C++ rendering and simulation work involving coordinate transforms, triangle rasterization, z-buffering, ray intersection tests, BVH acceleration structures, and mass-spring simulation.',
     role:
       'Implemented graphics algorithms and simulation behavior through custom C++ rendering and computation pipelines.',
-    keyContributions: [
+    contributions: [
       'Implemented coordinate transforms, triangle rasterization, z-buffering, ray-triangle intersection, and bounding boxes.',
       'Built ray-based mesh rendering with BVH acceleration structures.',
       'Worked with midpoint and surface-area-heuristic BVH construction approaches.',
-      'Simulated mass-spring systems using Euler and Verlet integration.',
-      'Rendered visual outputs through custom C++ graphics pipelines.',
+      'Simulated mass-spring systems using numerical integration techniques.',
+      'Generated visual outputs through custom C++ graphics pipelines.',
     ],
     technicalTakeaways:
-      'Developed stronger C++ programming skills and a better understanding of rendering algorithms, geometric data structures, acceleration structures, and simulation techniques.',
+      'This work built stronger C++ skills and a deeper understanding of rendering algorithms, acceleration structures, geometric computation, and simulation tradeoffs.',
+    projectProof: [
+      {
+        label: 'Rendering algorithms',
+        detail:
+          'Ray tracing, BVH acceleration, rasterization, z-buffering, coordinate transforms, and ray-triangle intersections.',
+      },
+      {
+        label: 'Simulation work',
+        detail:
+          'Mass-spring behavior was implemented with numerical integration and rendered through custom C++ graphics pipelines.',
+      },
+      {
+        label: 'Visual evidence',
+        detail:
+          'The detail page supports a render gallery; screenshots can be added as cleaned outputs under public/images/projects/.',
+      },
+    ],
+    sourceAvailabilityNote:
+      'Source code kept private due to course policy considerations; rendered outputs and technical summary are shown here.',
+    visualVariant: 'graphics',
   },
   {
-    slug: 'operating-systems-components',
     title: 'Operating Systems Components',
+    slug: 'operating-systems-components',
     category: 'Systems Programming',
     featured: false,
-    cardDescription:
-      'Systems programming projects covering a Unix-style shell, user-level threading, thread-local storage with copy-on-write, and virtual filesystem concepts.',
-    cardTags: ['C', 'C++', 'POSIX', 'Threads', 'Filesystems'],
-    preview: {
-      variant: 'systems',
-      label: 'Systems Programming',
-      heading: 'OS components project suite',
-      items: ['Shell', 'Threads', 'Filesystem'],
-    },
-    overview:
-      'A collection of systems programming projects including a Unix-style shell, preemptive user-level threading library, thread-local storage with copy-on-write, and a virtual filesystem.',
+    previewTitle: 'Systems components',
+    description:
+      'Systems programming project suite covering shell behavior, user-level threading, copy-on-write memory, and filesystem concepts.',
     techStack: ['C', 'C++', 'POSIX', 'Signals', 'Threads', 'Filesystems'],
-    focus: ['Systems programming', 'Concurrency', 'Memory', 'Filesystems'],
+    highlights: ['C', 'POSIX', 'Threads', 'Filesystems'],
+    projectFocus: [
+      'Systems programming',
+      'Process control',
+      'Concurrency',
+      'Memory behavior',
+      'Filesystem abstractions',
+    ],
+    overview:
+      'Operating Systems Components is a set of systems programming projects involving a Unix-style shell, user-level threading, thread-local storage with copy-on-write behavior, and filesystem-related abstractions.',
     role:
-      'Implemented systems-level components focused on process control, command execution, scheduling, threading, memory behavior, and filesystem abstractions.',
-    keyContributions: [
-      'Built Unix-style shell functionality involving process creation, command execution, pipelines, redirection, and signal handling.',
+      'Implemented systems-level components focused on process control, command execution, scheduling, threading, memory behavior, and filesystem concepts.',
+    contributions: [
+      'Built shell behavior involving process creation, command execution, pipelines, redirection, and signal handling.',
       'Implemented user-level threading and scheduling behavior.',
       'Worked with thread-local storage and copy-on-write memory behavior.',
       'Built filesystem-related functionality through low-level systems programming.',
-      'Practiced debugging systems code involving processes, memory, threads, and filesystems.',
+      'Debugged systems code involving processes, memory, threads, and filesystems.',
     ],
     technicalTakeaways:
-      'Developed stronger systems programming skills and a deeper understanding of concurrency, memory management, process behavior, and filesystem abstractions.',
+      'This work developed stronger systems programming fundamentals across concurrency, memory management, process behavior, signal handling, and filesystem interfaces.',
+    projectProof: [
+      {
+        label: 'Component coverage',
+        detail:
+          'Unix-style shell behavior, user-level threading, thread-local storage with copy-on-write behavior, and virtual filesystem concepts.',
+      },
+      {
+        label: 'Systems concepts',
+        detail:
+          'Work spans process control, command execution, pipelines, redirection, signals, scheduling, memory behavior, and filesystem abstractions.',
+      },
+      {
+        label: 'Architecture summary',
+        detail:
+          'The page presents implementation scope and design responsibilities without exposing reusable course solutions.',
+      },
+    ],
+    sourceAvailabilityNote:
+      'Source code kept private due to academic integrity considerations; architecture and implementation summary are shown here.',
+    visualVariant: 'systems',
   },
   {
-    slug: 'network-congestion-study',
     title: 'Network Congestion Study',
+    slug: 'network-congestion-study',
     category: 'Networking',
     featured: false,
-    cardDescription:
-      'A networking experiment analyzing TCP congestion behavior under controlled bottleneck, latency, queue, and congestion-control settings using Docker-based tooling and Python analysis.',
-    cardTags: ['Python', 'Docker', 'TCP', 'Networking'],
-    preview: {
-      variant: 'network',
-      label: 'Networking',
-      heading: 'TCP congestion experiment',
-      items: ['Latency', 'Queues', 'Throughput'],
-    },
-    overview:
-      'A networking experiment focused on analyzing TCP congestion behavior under controlled network conditions, including bottleneck bandwidth, added latency, queueing policy, buffer size, and congestion-control settings.',
-    techStack: ['Python', 'Docker', 'Linux', 'Bash', 'Networking'],
-    focus: [
+    previewTitle: 'TCP experiment',
+    description:
+      'Networking experiment analyzing TCP congestion behavior under controlled bottleneck, latency, queue, and traffic-shaping settings.',
+    techStack: ['Python', 'Docker', 'Linux', 'Bash', 'TCP', 'Networking'],
+    highlights: ['Python', 'Docker', 'TCP', 'Linux'],
+    projectFocus: [
       'Computer networks',
       'TCP congestion control',
-      'Experimentation',
+      'Queue tracing',
+      'Experiment design',
       'Data analysis',
     ],
+    overview:
+      'Network Congestion Study investigates queue behavior under controlled network conditions, including bottleneck bandwidth, added latency, queueing policy, buffer size, and congestion-control settings. The project combines Linux networking tools, Docker-based workflows, queue traces, and Python analysis.',
     role:
-      'Ran controlled networking experiments, collected experiment outputs, and analyzed performance behavior using Docker-based tooling and Python data analysis.',
-    keyContributions: [
-      'Ran experiments with controlled bandwidth, latency, queue, buffer, and congestion-control settings.',
-      'Used Docker-based tooling to create reproducible networking experiment environments.',
-      'Analyzed throughput and network behavior with Python-based data processing.',
-      'Interpreted how network conditions affected transport-layer performance.',
+      'Ran controlled networking experiments, collected queue and telemetry artifacts, generated plots, and analyzed transport-layer behavior under constrained network settings.',
+    contributions: [
+      'Ran experiments with controlled bandwidth, latency, queue policy, buffer size, and congestion-control settings.',
+      'Used Linux networking tools and Docker-based infrastructure to create reproducible experiment environments.',
+      'Collected queue traces and summarized queue occupancy over time.',
+      'Generated plots and summaries with Python-based data processing.',
+      'Interpreted how network conditions affected transport-layer performance and inference confidence.',
     ],
     technicalTakeaways:
-      'Gained hands-on experience with networking experiments, TCP congestion behavior, Docker-based tooling, and data-driven performance analysis.',
+      'This project strengthened my ability to design reproducible networking experiments, reason about TCP behavior from queue traces, and communicate the limits of inference when public-path conditions are uncontrolled.',
+    projectProof: [
+      {
+        label: 'Experiment setup',
+        detail:
+          'Controlled bottleneck bandwidth, added latency, queue policy, buffer size, and congestion-control settings.',
+      },
+      {
+        label: 'Technical artifacts',
+        detail:
+          'Queue traces, generated plots, experiment summaries, and Python analysis scripts are the intended public-facing artifacts.',
+      },
+      {
+        label: 'Reproducibility focus',
+        detail:
+          'Docker/Linux networking workflows were used to capture and analyze queue behavior under repeatable settings.',
+      },
+    ],
+    sourceAvailabilityNote:
+      'Public writeup repository pending cleanup of credentials, logs, and infrastructure-specific configuration.',
+    visualVariant: 'network',
   },
   {
-    slug: 'ai-ml-algorithms',
     title: 'AI/ML Algorithms Projects',
+    slug: 'ai-ml-algorithms',
     category: 'AI / Machine Learning',
     featured: false,
-    cardDescription:
-      'A set of AI and machine learning coursework projects involving search algorithms, heuristics, classification, feature processing, and Python-based analysis.',
-    cardTags: ['Python', 'AI', 'Machine Learning', 'Search'],
-    preview: {
-      variant: 'ai',
-      label: 'AI / Machine Learning',
-      heading: 'Classical AI and ML projects',
-      items: ['Search', 'Features', 'Classification'],
-    },
-    overview:
-      'A set of AI and machine learning coursework projects involving search algorithms, heuristics, classification, feature processing, and Python-based analysis.',
-    techStack: [
-      'Python',
-      'NumPy',
-      'pandas',
-      'Search Algorithms',
-      'Classification',
-    ],
-    focus: [
+    previewTitle: 'AI/ML coursework',
+    description:
+      'Python-based AI and machine learning coursework covering search algorithms, heuristics, classification, feature processing, and analysis.',
+    techStack: ['Python', 'NumPy', 'pandas', 'Search Algorithms', 'Classification'],
+    highlights: ['Python', 'AI', 'Machine Learning', 'Search'],
+    projectFocus: [
       'Artificial intelligence',
       'Machine learning fundamentals',
-      'Data processing',
-      'Algorithmic problem solving',
+      'Search and heuristics',
+      'Feature processing',
+      'Algorithmic analysis',
     ],
+    overview:
+      'AI/ML Algorithms Projects summarizes coursework involving classical search algorithms, heuristic problem solving, classification workflows, feature processing, and Python-based analysis.',
     role:
       'Implemented and analyzed classical AI and machine learning algorithms in Python.',
-    keyContributions: [
+    contributions: [
       'Implemented search and heuristic-based algorithms for problem-solving tasks.',
       'Worked with classification models and feature preprocessing.',
       'Used Python, NumPy, and pandas for data handling and analysis.',
-      'Practiced evaluating algorithm behavior and interpreting results.',
+      'Evaluated algorithm behavior and interpreted results across coursework tasks.',
     ],
     technicalTakeaways:
-      'Built a stronger foundation in AI problem solving, machine learning workflows, feature processing, and Python-based technical analysis.',
+      'This work reinforced core AI problem-solving techniques, data preparation habits, and disciplined analysis of algorithm behavior.',
+    projectProof: [
+      {
+        label: 'Algorithm coverage',
+        detail:
+          'Classical search, heuristic problem solving, classification, feature processing, and Python-based analysis.',
+      },
+      {
+        label: 'Technical context',
+        detail:
+          'Included as a concise coursework summary rather than a public source-code showcase.',
+      },
+    ],
+    sourceAvailabilityNote:
+      'Coursework code kept private; summary included for technical context.',
+    visualVariant: 'ai',
   },
 ]
 

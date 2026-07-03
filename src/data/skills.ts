@@ -1,20 +1,10 @@
-// Update this email address here if it changes.
-export const EMAIL = 'jackiechen246@gmail.com'
-
-export const profile = {
-  name: 'Jackie Chen',
-  school: 'University of California, Santa Barbara',
-  major: 'Computer Science',
-  location: 'San Francisco, CA',
-  links: {
-    github: 'https://github.com/jackiewchen',
-    linkedin: 'https://www.linkedin.com/in/jackiewchen',
-    email: `mailto:${EMAIL}`,
-    resume: '/Jackie_Chen_Resume.pdf',
-  },
+export type SkillGroup = {
+  label: string
+  skills: string[]
 }
 
-export const skillGroups = [
+// Edit these groups to update the Skills section on the homepage.
+export const skillGroups: SkillGroup[] = [
   {
     label: 'Languages',
     skills: ['TypeScript', 'JavaScript', 'Java', 'Python', 'C/C++', 'Swift', 'SQL', 'HTML/CSS'],
@@ -33,6 +23,7 @@ export const skillGroups = [
   },
 ]
 
+// Edit this list to update the Relevant Coursework card.
 export const relevantCoursework = [
   'Data Structures & Algorithms',
   'Software Engineering',

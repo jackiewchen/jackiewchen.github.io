@@ -12,13 +12,27 @@ type ProjectPreviewProps = {
   project: Project
 }
 
+function getProjectLinks(project: Project) {
+  return [
+    project.repoUrl ? { label: 'GitHub', href: project.repoUrl } : null,
+    project.demoUrl ? { label: 'Demo', href: project.demoUrl } : null,
+    project.caseStudyUrl
+      ? { label: 'Case Study', href: project.caseStudyUrl }
+      : null,
+  ].filter((link): link is { label: string; href: string } => link !== null)
+}
+
 function ProjectPreview({ detailsPath, project }: ProjectPreviewProps) {
-  if (project.imageUrl) {
+  if (project.thumbnail) {
     return (
-      <Link className="project-image" to={detailsPath}>
+      <Link
+        className="project-visual project-thumbnail"
+        to={detailsPath}
+        aria-label={`View ${project.title} details`}
+      >
         <img
-          src={project.imageUrl}
-          alt={project.imageAlt ?? `${project.title} project preview`}
+          src={project.thumbnail}
+          alt={project.thumbnailAlt ?? `${project.title} project preview`}
         />
       </Link>
     )
@@ -26,13 +40,13 @@ function ProjectPreview({ detailsPath, project }: ProjectPreviewProps) {
 
   return (
     <Link
-      className={`project-preview project-preview-${project.preview.variant}`}
+      className={`project-visual project-placeholder project-placeholder-${project.visualVariant}`}
       to={detailsPath}
       aria-label={`View ${project.title} details`}
     >
       <div className="preview-copy">
-        <span>{project.preview.label}</span>
-        <strong>{project.preview.heading}</strong>
+        <span>{project.category}</span>
+        <strong>{project.previewTitle}</strong>
       </div>
 
       <div className="preview-screen" aria-hidden="true">
@@ -43,7 +57,7 @@ function ProjectPreview({ detailsPath, project }: ProjectPreviewProps) {
       </div>
 
       <ul className="preview-items" aria-hidden="true">
-        {project.preview.items.map((item) => (
+        {project.highlights.slice(0, 3).map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
@@ -53,6 +67,7 @@ function ProjectPreview({ detailsPath, project }: ProjectPreviewProps) {
 
 function ProjectCard({ project, source = 'all' }: ProjectCardProps) {
   const detailsPath = `/projects/${project.slug}?from=${source}`
+  const projectLinks = getProjectLinks(project)
 
   return (
     <article className="project-card">
@@ -62,13 +77,13 @@ function ProjectCard({ project, source = 'all' }: ProjectCardProps) {
         <h3>
           <Link to={detailsPath}>{project.title}</Link>
         </h3>
-        <p>{project.cardDescription}</p>
+        <p>{project.description}</p>
       </div>
 
       <div className="project-detail-group project-card-tags">
         <h4>Highlights</h4>
         <ul className="tag-list" aria-label={`${project.title} technologies`}>
-          {project.cardTags.map((tag) => (
+          {project.highlights.map((tag) => (
             <li key={tag}>{tag}</li>
           ))}
         </ul>
@@ -81,7 +96,7 @@ function ProjectCard({ project, source = 'all' }: ProjectCardProps) {
         >
           View Details
         </Link>
-        {project.links?.map((link) => (
+        {projectLinks.map((link) => (
           <a
             className="button button-small button-secondary"
             href={link.href}

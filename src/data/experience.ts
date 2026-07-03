@@ -6,6 +6,9 @@ export type ExperienceItem = {
   highlights: string[]
 }
 
+// Edit this array to update the Experience section.
+// Keep entries concise and application-focused: role, organization, dates,
+// summary, and specific highlights.
 export const experience: ExperienceItem[] = [
   {
     role: 'Project Management & UX/UI Intern',

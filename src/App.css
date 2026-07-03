@@ -477,7 +477,7 @@ span.headshot-avatar {
   overflow: visible;
 }
 
-.project-image {
+.project-visual {
   display: block;
   aspect-ratio: 16 / 9;
   border-bottom: 1px solid var(--border);
@@ -486,14 +486,14 @@ span.headshot-avatar {
   overflow: hidden;
 }
 
-.project-image img {
+.project-thumbnail img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
 }
 
-.project-preview {
+.project-placeholder {
   display: grid;
   min-height: 210px;
   gap: 14px;
@@ -505,13 +505,13 @@ span.headshot-avatar {
   text-decoration: none;
 }
 
-.project-preview:hover .preview-copy strong,
+.project-placeholder:hover .preview-copy strong,
 .project-content h3 a:hover {
   color: var(--accent-strong);
 }
 
-.project-preview:focus-visible,
-.project-image:focus-visible,
+.project-placeholder:focus-visible,
+.project-visual:focus-visible,
 .project-content h3 a:focus-visible,
 .project-links a:focus-visible {
   outline: 3px solid rgba(15, 118, 110, 0.28);
@@ -589,99 +589,99 @@ span.headshot-avatar {
   padding: 6px 8px;
 }
 
-.project-preview-mobile .preview-screen {
+.project-placeholder-mobile .preview-screen {
   width: min(118px, 100%);
   min-height: 132px;
   justify-self: center;
   border-radius: 18px;
 }
 
-.project-preview-mobile .preview-bar {
+.project-placeholder-mobile .preview-bar {
   width: 38%;
   height: 8px;
   justify-self: center;
   background: var(--border);
 }
 
-.project-preview-search .preview-screen {
+.project-placeholder-search .preview-screen {
   grid-template-columns: 1fr;
 }
 
-.project-preview-search .preview-bar {
+.project-placeholder-search .preview-bar {
   width: 78%;
   background: #ffffff;
   border: 2px solid var(--accent);
 }
 
-.project-preview-graphics .preview-screen,
-.project-preview-systems .preview-screen {
+.project-placeholder-graphics .preview-screen,
+.project-placeholder-systems .preview-screen {
   border-color: rgba(255, 255, 255, 0.18);
   background: #1a2a25;
 }
 
-.project-preview-graphics .preview-bar {
+.project-placeholder-graphics .preview-bar {
   width: 34%;
   background: var(--warm);
 }
 
-.project-preview-graphics .preview-line {
+.project-placeholder-graphics .preview-line {
   background: #78c8bf;
 }
 
-.project-preview-graphics .preview-line-short {
+.project-placeholder-graphics .preview-line-short {
   width: 44%;
 }
 
-.project-preview-systems .preview-bar {
+.project-placeholder-systems .preview-bar {
   width: 26%;
   background: #8bd7cf;
 }
 
-.project-preview-systems .preview-line {
+.project-placeholder-systems .preview-line {
   height: 8px;
   background: #5aa79f;
 }
 
-.project-preview-network .preview-screen {
+.project-placeholder-network .preview-screen {
   grid-template-columns: repeat(3, 1fr);
   align-content: center;
   gap: 10px;
 }
 
-.project-preview-network .preview-bar,
-.project-preview-network .preview-line {
+.project-placeholder-network .preview-bar,
+.project-placeholder-network .preview-line {
   width: 100%;
   height: 32px;
   border-radius: 8px;
 }
 
-.project-preview-network .preview-bar {
+.project-placeholder-network .preview-bar {
   background: var(--accent);
 }
 
-.project-preview-network .preview-line {
+.project-placeholder-network .preview-line {
   background: #b8ded8;
 }
 
-.project-preview-ai .preview-screen {
+.project-placeholder-ai .preview-screen {
   grid-template-columns: 1fr 1fr;
   align-content: center;
   gap: 10px;
 }
 
-.project-preview-ai .preview-bar,
-.project-preview-ai .preview-line {
+.project-placeholder-ai .preview-bar,
+.project-placeholder-ai .preview-line {
   width: 100%;
   height: 24px;
   border-radius: 999px;
 }
 
-.project-preview-ai .preview-bar {
+.project-placeholder-ai .preview-bar {
   grid-column: 1 / -1;
   background: var(--warm);
 }
 
-.project-preview-ai .preview-line {
+.project-placeholder-ai .preview-line {
   background: #d6eee9;
 }
 
@@ -819,6 +819,67 @@ span.headshot-avatar {
   line-height: 1.7;
 }
 
+.detail-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.detail-visual-frame,
+.detail-placeholder {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.detail-visual-frame {
+  margin: 0;
+}
+
+.detail-visual-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+
+.detail-visual-frame figcaption {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 12px 14px;
+}
+
+.detail-visual-single {
+  aspect-ratio: 16 / 8;
+}
+
+.detail-placeholder {
+  grid-template-columns: minmax(220px, 0.45fr) minmax(260px, 1fr);
+  min-height: 340px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding: 30px;
+}
+
+.detail-placeholder .preview-copy strong {
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+
+.detail-placeholder .preview-screen {
+  min-height: 190px;
+}
+
+.detail-placeholder .preview-items {
+  grid-column: 1 / -1;
+}
+
 .detail-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -849,6 +910,50 @@ span.headshot-avatar {
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
+}
+
+.project-proof-card {
+  background: #ffffff;
+}
+
+.project-proof-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-proof-list li {
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-alt);
+  padding: 14px;
+}
+
+.project-proof-list strong {
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.project-proof-list span {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.detail-card .project-proof-note {
+  margin-top: 14px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-weight: 800;
+  padding: 14px;
 }
 
 .detail-tags {
@@ -1152,8 +1257,19 @@ span.headshot-avatar {
     grid-template-columns: 1fr;
   }
 
-  .project-preview {
+  .project-placeholder {
     min-height: 190px;
+  }
+
+  .detail-visual-grid,
+  .detail-placeholder,
+  .project-proof-list {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-placeholder {
+    min-height: 0;
+    padding: 22px;
   }
 
   .experience-item {

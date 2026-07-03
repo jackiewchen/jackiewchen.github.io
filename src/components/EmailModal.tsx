@@ -34,10 +34,6 @@ function EmailModal({ email, onClose }: EmailModalProps) {
     }
   }
 
-  const handleOpenMailApp = () => {
-    window.location.href = `mailto:${email}`
-  }
-
   const handleBackdropClick = () => {
     onClose()
   }
@@ -82,13 +78,6 @@ function EmailModal({ email, onClose }: EmailModalProps) {
             onClick={handleCopyEmail}
           >
             Copy Email
-          </button>
-          <button
-            className="button button-secondary"
-            type="button"
-            onClick={handleOpenMailApp}
-          >
-            Open Mail App
           </button>
         </div>
 
