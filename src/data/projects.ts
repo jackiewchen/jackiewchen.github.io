@@ -109,7 +109,7 @@ export const projects: Project[] = [
       },
     ],
     sourceAvailabilityNote:
-      'Public repository pending cleanup and team/course permission review. Screenshots and project details are provided here.',
+      'Source code available upon request where permitted.',
     visualVariant: 'mobile',
   },
   {
@@ -170,7 +170,7 @@ export const projects: Project[] = [
       },
     ],
     sourceAvailabilityNote:
-      'Repository link pending cleanup and course/team permission review. Screenshots and architecture details can be shown here.',
+      'Source code available upon request where permitted.',
     visualVariant: 'search',
   },
   {
@@ -228,7 +228,7 @@ export const projects: Project[] = [
       },
     ],
     sourceAvailabilityNote:
-      'Source code kept private due to course policy considerations; rendered outputs and technical summary are shown here.',
+      'Implementation details available upon request where permitted.',
     visualVariant: 'graphics',
   },
   {
@@ -279,7 +279,7 @@ export const projects: Project[] = [
       },
     ],
     sourceAvailabilityNote:
-      'Source code kept private due to academic integrity considerations; architecture and implementation summary are shown here.',
+      'Implementation details available upon request where permitted.',
     visualVariant: 'systems',
   },
   {
@@ -330,7 +330,7 @@ export const projects: Project[] = [
       },
     ],
     sourceAvailabilityNote:
-      'Public writeup repository pending cleanup of credentials, logs, and infrastructure-specific configuration.',
+      'Source code available upon request where permitted.',
     visualVariant: 'network',
   },
   {
@@ -375,7 +375,7 @@ export const projects: Project[] = [
       },
     ],
     sourceAvailabilityNote:
-      'Coursework code kept private; summary included for technical context.',
+      'Implementation details available upon request where permitted.',
     visualVariant: 'ai',
   },
 ]

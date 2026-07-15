@@ -947,13 +947,10 @@ span.headshot-avatar {
 }
 
 .detail-card .project-proof-note {
-  margin-top: 14px;
-  border: 1px solid rgba(15, 118, 110, 0.18);
-  border-radius: 8px;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  font-weight: 800;
-  padding: 14px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
 }
 
 .detail-tags {
