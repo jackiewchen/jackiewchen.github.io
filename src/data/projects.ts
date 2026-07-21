@@ -174,22 +174,21 @@ export const projects: Project[] = [
     visualVariant: 'search',
   },
   {
-    title: 'Computer Graphics Projects',
+    title: 'Rendering Pipeline & Physics Simulation',
     slug: 'computer-graphics',
     category: 'Computer Graphics',
     featured: true,
     previewTitle: 'C++ rendering projects',
     description:
-      'C++ graphics project suite covering rasterization, z-buffering, ray tracing, BVH acceleration, and mass-spring simulation.',
+      'Built C++ rendering systems featuring rasterization, ray tracing, BVH acceleration, and mass-spring physics simulation.',
     techStack: [
       'C++',
-      'Rendering',
       'Ray Tracing',
-      'BVH',
       'Rasterization',
-      'Simulation',
+      'BVH',
+      'Physics Simulation',
     ],
-    highlights: ['C++', 'Ray Tracing', 'Rasterization', 'Simulation'],
+    highlights: ['C++', 'Ray Tracing', 'Rasterization', 'BVH'],
     projectFocus: [
       'Computer graphics',
       'Rendering algorithms',
@@ -198,15 +197,13 @@ export const projects: Project[] = [
       'Performance-aware C++',
     ],
     overview:
-      'Computer Graphics Projects is a collection of C++ rendering and simulation work involving coordinate transforms, triangle rasterization, z-buffering, ray intersection tests, BVH acceleration structures, and mass-spring simulation.',
+      'A collection of C++ graphics projects exploring rasterization, ray tracing, spatial acceleration, and physics-based simulation. The work includes a custom rendering pipeline, BVH-accelerated mesh intersection, and mass-spring systems implemented with Euler and Verlet integration.',
     role:
       'Implemented graphics algorithms and simulation behavior through custom C++ rendering and computation pipelines.',
     contributions: [
-      'Implemented coordinate transforms, triangle rasterization, z-buffering, ray-triangle intersection, and bounding boxes.',
-      'Built ray-based mesh rendering with BVH acceleration structures.',
-      'Worked with midpoint and surface-area-heuristic BVH construction approaches.',
-      'Simulated mass-spring systems using numerical integration techniques.',
-      'Generated visual outputs through custom C++ graphics pipelines.',
+      'Implemented coordinate transformations, triangle rasterization, z-buffering, ray-triangle intersection, and bounding-box calculations in C++.',
+      'Built ray-based mesh rendering with midpoint and surface-area-heuristic BVH construction to accelerate intersection testing.',
+      'Simulated mass-spring systems using Euler and Verlet integration and rendered the results through a custom C++ graphics pipeline.',
     ],
     technicalTakeaways:
       'This work built stronger C++ skills and a deeper understanding of rendering algorithms, acceleration structures, geometric computation, and simulation tradeoffs.',
@@ -219,7 +216,7 @@ export const projects: Project[] = [
       {
         label: 'Simulation work',
         detail:
-          'Mass-spring behavior was implemented with numerical integration and rendered through custom C++ graphics pipelines.',
+          'Mass-spring systems use Euler and Verlet integration, with results rendered through a custom C++ graphics pipeline.',
       },
       {
         label: 'Visual evidence',

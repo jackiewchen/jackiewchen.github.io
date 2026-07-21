@@ -15,11 +15,12 @@ export const experience: ExperienceItem[] = [
     organization: 'Waymo',
     period: 'Jun. 2024 - Aug. 2024',
     summary:
-      'Supported product strategy and UX/UI recommendations for an intern project focused on autonomous vehicle services in San Diego.',
+      'Built a front-end informational website and contributed product and UX research for a proposed autonomous vehicle service in San Diego.',
     highlights: [
-      'Developed a business proposal and product model for launching autonomous vehicle services in San Diego.',
-      'Researched market needs, user pain points, and deployment considerations to support product strategy and UX/UI recommendations.',
-      'Built an HTML/CSS/JavaScript web portfolio and helped present final recommendations with a 20+ person intern team.',
+      'Built an informational website using HTML, CSS, and JavaScript to present research findings, product strategy, and UX concepts.',
+      'Conducted user interviews and usability sessions to identify accessibility needs, pain points, and opportunities to improve the rider experience.',
+      'Combined market research, user findings, and deployment considerations into a business proposal and product model.',
+      'Coordinated a 20+ person intern team by organizing responsibilities, tracking project timelines, facilitating collaboration, and preparing the final presentation.',
     ],
   },
   {
@@ -27,11 +28,11 @@ export const experience: ExperienceItem[] = [
     organization: 'Google Computer Science Summer Institute',
     period: 'Jul. 2022 - Aug. 2022',
     summary:
-      'Selected for a 4-week Google program focused on web development, product design, and software engineering fundamentals.',
+      'Selected for Google\u2019s four-week project-based computer science program focused on web development, APIs, product design, and software engineering fundamentals.',
     highlights: [
-      'Completed Google\'s 4-week Computer Science Summer Institute focused on JavaScript, HTML/CSS, APIs, product design, and software engineering fundamentals.',
-      'Built and presented a collaborative JavaScript web app using the Canvas API, Bulma, and GIPHY API.',
-      'Completed individual coding projects focused on web development concepts and interactive user interfaces.',
+      'Built 14 individual JavaScript projects applying core web development concepts and interactive UI features.',
+      'Built and presented a collaborative JavaScript web application using the Canvas API, Bulma, and the GIPHY API.',
+      'Presented the final project to Google employees and community leaders and participated in workshops on product design, artificial intelligence, and technical interview preparation.',
     ],
   },
 ]
